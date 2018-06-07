@@ -38,7 +38,7 @@ update_version:
 
 os.iso: kernel.elf
 	cp mumin_kernel.elf $(ISODIR)/boot/mumin_kernel.elf 
-	grub-mkrescue -o $(NAME)-$(VERSION_STRING).iso $(ISODIR)
+	grub2-mkrescue -o $(NAME)-$(VERSION_STRING).iso $(ISODIR)
 
 run: os.iso
 	qemu-system-i386 -cdrom $(NAME)-$(VERSION_STRING).iso $(QEMU_FLAGS)
