@@ -1,4 +1,4 @@
-ENTRY(loader) /* Name of the entry point */
+ENTRY(_start) /* Name of the entry point */
 
 SECTIONS {
 	. = 0x00100000;	/* Code location at 1 MB*/
