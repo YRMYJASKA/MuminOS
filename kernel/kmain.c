@@ -23,7 +23,7 @@ int kmain(void)
     init_kb();
 
     char lastkey = 0;
-    char buffer[74];
+    char buffer[74]  = "\0";
     int i = 0;
     // Enter the loop
     while (1) {
@@ -34,13 +34,13 @@ int kmain(void)
             buffer[i] = ' ';
             execute_command(buffer);
             for (int x = 0; x < 74; x++) {
-                buffer[x] = ' ';
+                buffer[x] = '\0';
             }
             i = 0;
             lastkey = keypress;
         } else if (keypress < 32 || keypress > 126 || keypress == lastkey) {
             if ((keypress == 0x0E || keypress == 0x08) && i > 0) {
-                buffer[i] = ' ';
+                buffer[i] = '\0';
                 i--;
 				cursor_x--;
                 write_string(buffer, 7, cursor_y);
